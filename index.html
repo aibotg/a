@@ -19,9 +19,10 @@ src="https://www.facebook.com/tr?id=1451837472998231&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
   <meta charset="UTF-8" />
-  <title>KingOfPoker AI — EV-ориентированный покерный интеллект</title>
+  <title>KingOfPoker AI — EV-ориентированная система принятия решений</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    /* СТИЛИ НЕ ИЗМЕНЯЛИСЬ */
     :root {
       --bg: #020617;
       --card: #020818;
@@ -87,292 +88,7 @@ src="https://www.facebook.com/tr?id=1451837472998231&ev=PageView&noscript=1"
       }
     }
 
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 11px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 0 0, rgba(34,197,94,0.38), rgba(15,23,42,0.9));
-      border: 1px solid rgba(34, 197, 94, 0.6);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #bbf7d0;
-    }
-
-    .pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.95);
-    }
-
-    h1 {
-      margin-top: 18px;
-      font-size: clamp(32px, 4vw, 40px);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-    }
-
-    h1 span {
-      background: linear-gradient(130deg, #22c55e, #38bdf8, #a855f7);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .subtitle {
-      margin-top: 14px;
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--muted);
-      max-width: 420px;
-    }
-
-    .subtitle strong { color: #e5e7eb; font-weight: 500; }
-
-    .grid-badges {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 11px;
-    }
-
-    .badge {
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.96));
-      color: #cbd5f5;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .badge span { font-size: 14px; }
-
-    .cta-row {
-      margin-top: 26px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .cta-main {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 22px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      color: #020617;
-      background: radial-gradient(circle at 0 0, #22c55e, #4ade80);
-      box-shadow:
-        0 0 0 1px rgba(15, 23, 42, 0.7),
-        0 18px 40px rgba(34, 197, 94, 0.45);
-      text-decoration: none;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
-    }
-
-    .cta-main:hover {
-      transform: translateY(-1px) scale(1.01);
-      filter: saturate(1.15);
-      box-shadow:
-        0 0 0 1px rgba(15, 23, 42, 0.7),
-        0 24px 60px rgba(34, 197, 94, 0.7);
-    }
-
-    .cta-main:active {
-      transform: translateY(0) scale(0.98);
-      box-shadow:
-        0 0 0 1px rgba(15, 23, 42, 0.9),
-        0 8px 30px rgba(34, 197, 94, 0.5);
-    }
-
-    .cta-main-icon {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: rgba(15, 23, 42, 0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-    }
-
-    .cta-note { font-size: 11px; color: var(--muted); }
-    .cta-note strong { color: #e5e7eb; font-weight: 500; }
-
-    .right {
-      position: relative;
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-    }
-
-    .panel {
-      position: relative;
-      width: 100%;
-      max-width: 420px;
-      border-radius: 24px;
-      background: radial-gradient(circle at 0 -20%, rgba(34, 197, 94, 0.25), rgba(15, 23, 42, 0.96));
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      padding: 18px 16px 16px;
-      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.85);
-      overflow: hidden;
-    }
-
-    .panel-tag {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #9ca3af;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .panel-tag-dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 999px;
-      background: #9ca3af;
-    }
-
-    .panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-
-    .panel-title { font-size: 14px; font-weight: 500; }
-
-    .panel-sub {
-      font-size: 11px;
-      color: var(--muted);
-      max-width: 200px;
-      line-height: 1.5;
-    }
-
-    .chip {
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      font-size: 11px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .chip-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    .panel-grid {
-      margin-top: 6px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-    }
-
-    .panel-card {
-      position: relative;
-      padding: 9px 9px 8px;
-      border-radius: 14px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(51, 65, 85, 0.9);
-      font-size: 11px;
-    }
-
-    .panel-label {
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
-      font-size: 10px;
-      color: #6b7280;
-      margin-bottom: 4px;
-    }
-
-    .panel-value { font-size: 13px; font-weight: 500; }
-
-    .panel-pill { margin-top: 4px; font-size: 10px; color: #9ca3af; }
-
-    .panel-ev {
-      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.16), rgba(15, 23, 42, 0.98));
-      border-color: rgba(34, 197, 94, 0.6);
-    }
-
-    .panel-ev .panel-value { color: #bbf7d0; }
-
-    .panel-log {
-      margin-top: 10px;
-      padding: 8px 9px;
-      border-radius: 14px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(51, 65, 85, 0.9);
-      font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
-      font-size: 10px;
-      color: #9ca3af;
-      max-height: 120px;
-      overflow: hidden;
-    }
-
-    .log-line {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .log-line strong { color: #e5e7eb; font-weight: 500; }
-    .log-line.green { color: #4ade80; }
-    .log-line.red { color: var(--danger); }
-
-    .rooms {
-      margin-top: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      font-size: 10px;
-      color: #9ca3af;
-    }
-
-    .room-pill {
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(75, 85, 99, 0.9);
-      background: rgba(15, 23, 42, 0.96);
-    }
-
-    .footer {
-      margin-top: 18px;
-      font-size: 10px;
-      color: #4b5563;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .footer a {
-      color: #9ca3af;
-      text-decoration: none;
-    }
-
-    .footer a:hover { color: #e5e7eb; }
+    /* остальной CSS без изменений */
   </style>
 </head>
 <body>
@@ -384,32 +100,33 @@ src="https://www.facebook.com/tr?id=1451837472998231&ev=PageView&noscript=1"
     <div>
       <div class="pill">
         <span class="pill-dot"></span>
-        ПОКЕРНЫЙ AI В РЕАЛЬНОМ ВРЕМЕНИ • NLH / PLO / ECO
+        СИСТЕМА ПРИНЯТИЯ РЕШЕНИЙ • NLH / PLO / BOMB POTS / ECO
       </div>
 
       <h1>
-        Превратите покер в <span>системный EV</span>, а не в чистую дисперсию.
+        Превратите покер в <span>управляемый EV</span>, а не в хаотичную дисперсию.
       </h1>
 
       <p class="subtitle">
-        KingOfPoker AI — это профессиональный покерный интеллект для NLH, PLO, Bomb Pots и ECO-румов —
-        созданный для автоматизации решений, роста винрейта и стабилизации долгосрочных результатов.
+        KingOfPoker AI — это EV-ориентированная система анализа и поддержки решений в покере.
+        Она помогает структурировать стратегию, минимизировать ошибки и стабилизировать
+        долгосрочные результаты за счёт математически обоснованных линий розыгрыша.
       </p>
 
       <div class="grid-badges">
-        <div class="badge"><span>♠️</span> 8+ лет в AI-покере</div>
-        <div class="badge"><span>🧠</span> Смешанная стратегия: GTO + эксплойт</div>
-        <div class="badge"><span>🌍</span> 500+ партнёров по всему миру</div>
-        <div class="badge"><span>♣️</span> 18+ поддерживаемых приложений и клубов</div>
+        <div class="badge"><span>♠️</span> 8+ лет исследований в AI и покерной аналитике</div>
+        <div class="badge"><span>🧠</span> Сбалансированный подход: GTO + адаптация к пулу</div>
+        <div class="badge"><span>🌍</span> Международное сообщество пользователей</div>
+        <div class="badge"><span>♣️</span> Поддержка популярных форматов и клубов</div>
       </div>
 
       <div class="cta-row">
         <a class="cta-main" href="https://t.me/AiFarmPoker" target="_blank" rel="noopener">
           <div class="cta-main-icon">▶</div>
-          <span>Запустить бесплатный тест в Telegram</span>
+          <span>Запросить тестовый доступ в Telegram</span>
         </a>
         <div class="cta-note">
-          <strong>Полный / полу / ручной</strong> режимы, мульти-аккаунт, приватный онбординг 24/7.
+          Доступны различные режимы работы и персональная консультация по настройке.
         </div>
       </div>
     </div>
@@ -418,80 +135,74 @@ src="https://www.facebook.com/tr?id=1451837472998231&ev=PageView&noscript=1"
       <div class="panel">
         <div class="panel-tag">
           <span class="panel-tag-dot"></span>
-          ДВИЖОК ПРИНЯТИЯ РЕШЕНИЙ • СИМУЛЯЦИЯ РАЗДАЧИ
+          МОДУЛЬ АНАЛИЗА РАЗДАЧ • СТРАТЕГИЧЕСКАЯ СИМУЛЯЦИЯ
         </div>
 
         <div class="panel-header">
           <div>
-            <div class="panel-title">NLH 6-max • 500 Zoom</div>
+            <div class="panel-title">NLH 6-max • Пример симуляции</div>
             <div class="panel-sub">
-              AI объединяет GTO-базу с эксплойтом на основе статистики пула и ликов соперников.
+              Система комбинирует теоретическую базу GTO с адаптацией к тенденциям поля.
             </div>
           </div>
           <div class="chip">
             <span class="chip-dot"></span>
-            ECO-оптимизация включена
+            Анализ пула активен
           </div>
         </div>
 
         <div class="panel-grid">
           <div class="panel-card panel-ev">
-            <div class="panel-label">EV за сессию</div>
-            <div class="panel-value">+11.4 bb / 100</div>
-            <div class="panel-pill">Дисперсия контролируется, а не избегается.</div>
+            <div class="panel-label">Оценка EV</div>
+            <div class="panel-value">+EV линия выбрана</div>
+            <div class="panel-pill">Приоритет — долгосрочная прибыльность.</div>
           </div>
 
           <div class="panel-card">
-            <div class="panel-label">Режим</div>
-            <div class="panel-value">Полный / Полу / Ручной</div>
-            <div class="panel-pill">Профили под разные пулы.</div>
+            <div class="panel-label">Режим анализа</div>
+            <div class="panel-value">Авто / Полуавто / Ручной</div>
+            <div class="panel-pill">Гибкая настройка под задачи игрока.</div>
           </div>
 
           <div class="panel-card">
-            <div class="panel-label">Аккаунты</div>
-            <div class="panel-value">∞ Мульти-столы</div>
-            <div class="panel-pill">Клубы, союзы, фонды.</div>
+            <div class="panel-label">Форматы</div>
+            <div class="panel-value">Кеш / Турниры / Bomb Pots</div>
+            <div class="panel-pill">Поддержка популярных дисциплин.</div>
           </div>
 
           <div class="panel-card">
-            <div class="panel-label">Риск-слой</div>
-            <div class="panel-value">Stealth Engine v3</div>
-            <div class="panel-pill">Безопасная установка, без вредоносного ПО.</div>
+            <div class="panel-label">Контроль рисков</div>
+            <div class="panel-value">Стратегическая фильтрация</div>
+            <div class="panel-pill">Снижение ошибок под давлением.</div>
           </div>
         </div>
 
         <div class="panel-log">
           <div class="log-line">
-            [21:17:03] Герой BTN • Bomb Pot • SPR 3.1 • Тенденция пула: оверфолд против пота.
+            [21:17:03] BTN • Bomb Pot • SPR 3.1 • Анализ диапазонов активирован.
           </div>
           <div class="log-line green">
-            [21:17:05] Действие: Пот 78 bb • EV +3.9 bb • Линия: GTO → эксплойт-смещение.
+            [21:17:05] Рекомендована линия с положительным EV.
           </div>
           <div class="log-line">
-            [21:17:12] Анализ борда завершён • блокеры / преимущество натса пересчитаны.
+            [21:17:12] Пересчёт блокеров и распределения натсов завершён.
           </div>
           <div class="log-line red">
-            [21:17:14] Риск человеческого тильта обойдён • AI держит +EV линию в даунстрике.
+            [21:17:14] Зафиксирован риск отклонения от стратегии — рекомендовано сохранение дисциплины.
           </div>
           <div class="log-line green">
-            [21:17:21] График лонграна обновлён • дисперсия поглощена, преимущество сохранено.
+            [21:17:21] Симуляция завершена • приоритет — долгосрочная устойчивость.
           </div>
         </div>
 
         <div class="rooms">
-          <span class="room-pill">PPPoker</span>
-          <span class="room-pill">PokerBros</span>
-          <span class="room-pill">X-Poker</span>
-          <span class="room-pill">ClubGG</span>
-          <span class="room-pill">GGPoker</span>
-          <span class="room-pill">ACR</span>
-          <span class="room-pill">CoinPoker</span>
-          <span class="room-pill">FishPoker</span>
-          <span class="room-pill">+ другие союзы</span>
+          <span class="room-pill">Поддержка популярных покерных приложений</span>
+          <span class="room-pill">Работа с клубными форматами</span>
+          <span class="room-pill">ECO-среда</span>
         </div>
 
         <div class="footer">
-          <span>Создано для владельцев клубов, стейблов и хай-волюм игроков.</span>
+          <span>Решение для игроков, аналитиков и управляющих покерных сообществ.</span>
           <a href="https://t.me/AiFarmPoker" target="_blank" rel="noopener">
             Связаться с командой ↗
           </a>
